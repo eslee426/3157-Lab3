@@ -32,7 +32,7 @@ void traverseList(struct List *list, void (*f)(void *))
    }
 }
 
-
+//takes given data point and makes it negative
 void flipSignDouble(void *data)
 {
     double *nodeData = (double *) data;
@@ -40,7 +40,7 @@ void flipSignDouble(void *data)
 
 }
 
-
+// if given data are equal, returns 0 and 1 otherwise
 int compareDouble(const void *data1, const void *data2)
 {
     double *double1 = (double *) data1;
@@ -54,14 +54,15 @@ int compareDouble(const void *data1, const void *data2)
     return result;
 }
 
-
-
+// uses compar function to find given data in list
 struct Node *findNode(struct List *list, const void *dataSought,
         int (*compar)(const void *, const void *))
 {
     struct Node *linkedList = list->head;
     struct Node *nodeFound = NULL;
+
     while (linkedList) {
+        // sets nodeFound = 0 if data are equal
         if(compar(dataSought, linkedList->data) == 0) {
             nodeFound = linkedList;
         }
@@ -70,12 +71,20 @@ struct Node *findNode(struct List *list, const void *dataSought,
     return nodeFound;
 }
 
-/*
+// removes first node in list and returns pointer to data
 void *popFront(struct List *list) 
 {
-
+    if (isEmptyList(list)) {
+        return NULL;
+    }
+    struct Node *firstnode = list->head;
+    void *returndata = firstnode->data;
+    list->head = firstnode->next;
+    free(firstnode);
+    return returndata;
 }
 
+/*
 void removeAllNodes(struct List *list)
 {
 
