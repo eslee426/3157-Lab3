@@ -1,3 +1,12 @@
+/*
+ * Name: Elisha Lee
+ * uni: esl2131
+ * File Name: mylist.c
+ * Description: implmentation of a Linked List that can 
+ * hold any data type
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "mylist.h"
@@ -78,6 +87,8 @@ void *popFront(struct List *list)
     }
     struct Node *firstnode = list->head;
     void *returndata = firstnode->data;
+    
+    //removes front node
     list->head = firstnode->next;
     free(firstnode);
     return returndata;
@@ -99,6 +110,7 @@ struct Node *addAfter(struct List *list,
     if (prevNode == NULL) {
         return addFront(list, data);
     } else {
+        // creates new node to add to list
         struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
         if (newNode == NULL) {
             perror("malloc returned null");
@@ -109,12 +121,23 @@ struct Node *addAfter(struct List *list,
         prevNode->next = newNode;
         return newNode;
     }
-
-
 }
-/*
+
+// reverses the list
 void reverseList(struct List *list)
 {
+    struct Node *prev = NULL;            
+    struct Node *curr = list->head;                  
+    struct Node *next;
+
+    // reverses list
+    while (curr) {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    // sets head to back of list
+    list->head = prev;
         
 }
-*/
