@@ -16,4 +16,4 @@ clean:
 	rm -f *.o a.out core revecho Makefile~ revecho.c~
 
 .PHONY: all
-all: clean make
+all: clean revecho
