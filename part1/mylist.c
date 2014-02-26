@@ -40,18 +40,37 @@ void flipSignDouble(void *data)
 
 }
 
-/*
+
 int compareDouble(const void *data1, const void *data2)
 {
-
+    double *double1 = (double *) data1;
+    double *double2 = (double *) data2;
+    int result;
+    if (*double1 == *double2) {
+        result = 0;
+    } else {
+        result = 1;
+    } 
+    return result;
 }
+
+
 
 struct Node *findNode(struct List *list, const void *dataSought,
         int (*compar)(const void *, const void *))
 {
-
+    struct Node *linkedList = list->head;
+    struct Node *nodeFound = NULL;
+    while (linkedList) {
+        if(compar(dataSought, linkedList->data) == 0) {
+            nodeFound = linkedList;
+        }
+        linkedList = linkedList->next;
+    }
+    return nodeFound;
 }
 
+/*
 void *popFront(struct List *list) 
 {
 
