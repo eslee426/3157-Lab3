@@ -1,10 +1,10 @@
 CC = gcc
 
-INCLUDES = 
+INCLUDES = -I ../part1
 CFLAGS = -g -Wall $(INCLUDES)
 
-LDFLAGS = -g
-LDLIBS = -lm
+LDFLAGS = -g -L ../part1
+LDLIBS =  -lmylist
 
 
 revecho: revecho.o
