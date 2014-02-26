@@ -13,7 +13,7 @@ revecho.o: revecho.c
 
 .PHONY: clean
 clean:
-	rm -f *.o a.out core revecho Makefile~ revecho.c~
+	rm -f *.o a.out core revecho
 
 .PHONY: all
 all: clean revecho

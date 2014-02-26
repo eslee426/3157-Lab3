@@ -6,7 +6,7 @@ CFLAGS = -g -Wall $(INCLUDES)
 LDFLAGS = -g
 LDLIBS = 
 
-mylist-test: libmylist.a mylist-test.o 
+mylist-test: mylist-test.o libmylist.a
 
 libmylist.a: mylist.o
 	ar rc libmylist.a mylist.o
