@@ -7,7 +7,7 @@
 struct Node *addFront(struct List *list, void *data) 
 {
     //creates new node
-    struct Node *front = (struct Node *)malloc(sizeof(struct Node *));
+    struct Node *front = (struct Node *)malloc(sizeof(struct Node));
     if (front == NULL) 
     {
         perror("malloc returned NULL");
@@ -15,9 +15,9 @@ struct Node *addFront(struct List *list, void *data)
     }
     
     //adds to front
+    front->data = data;
     front->next = list->head;
     list->head = front;
-    front->data = data;
     return front;
 }
 
@@ -84,12 +84,14 @@ void *popFront(struct List *list)
     return returndata;
 }
 
-/*
+// removes all nodes
 void removeAllNodes(struct List *list)
 {
-
+    while(!isEmptyList(list)) {
+        popFront(list);
+    }
 }
-
+/*
 struct Node *addAfter(struct List *list, 
         struct Node *prevNode, void *data)
 {
