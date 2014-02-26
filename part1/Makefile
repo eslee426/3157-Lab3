@@ -18,7 +18,7 @@ mylist.o: mylist.h
 
 .PHONY: clean
 clean:
-	rm -f *.o a.out core mylist-test Makefile~ mylist.c~ mylist.h~ mylist-test.c~ 
+	rm -f *.o a.out core mylist-test libmylist.a 
 
 .PHONY: all
 all: clean mylist-test
