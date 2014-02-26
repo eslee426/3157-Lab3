@@ -12,7 +12,8 @@
 #include <string.h>
 #include "mylist.h"
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
     struct List stringList;
     int i;
     initList(&stringList);
