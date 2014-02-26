@@ -8,8 +8,7 @@ struct Node *addFront(struct List *list, void *data)
 {
     //creates new node
     struct Node *front = (struct Node *)malloc(sizeof(struct Node));
-    if (front == NULL) 
-    {
+    if (front == NULL) {
         perror("malloc returned NULL");
         exit(1);
     }
@@ -87,19 +86,35 @@ void *popFront(struct List *list)
 // removes all nodes
 void removeAllNodes(struct List *list)
 {
+    // only checks if list is not empty
     while(!isEmptyList(list)) {
         popFront(list);
     }
 }
-/*
+
+//adds new node with data after given node
 struct Node *addAfter(struct List *list, 
         struct Node *prevNode, void *data)
 {
+    if (prevNode == NULL) {
+        return addFront(list, data);
+    } else {
+        struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+        if (newNode == NULL) {
+            perror("malloc returned null");
+            exit(1);
+        }
+        newNode->data = data;
+        newNode->next = prevNode->next;
+        prevNode->next = newNode;
+        return newNode;
+    }
+
 
 }
-
+/*
 void reverseList(struct List *list)
 {
-
+        
 }
 */
