@@ -1,10 +1,3 @@
-/*
- * Name: Elisha Lee
- * Uni: esl2131
- * File: mylist-test.c
- * Description: Given test file for mylist.c
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -43,7 +36,6 @@ int main()
     }
     traverseList(&list, &printDouble);
     printf("\n");
-
 
     // test flipSignDouble()
     printf("testing flipSignDouble(): ");
@@ -84,6 +76,7 @@ int main()
     }
     traverseList(&list, &printDouble);
     printf("\n");
+
     // test reverseList()
     while ((data = popFront(&list)) != NULL) {
 	printf("popped %.1f, and reversed the rest: [ ", *(double *)data);
@@ -91,5 +84,6 @@ int main()
 	traverseList(&list, &printDouble);
 	printf("]\n");
     }
+
     return 0;
 }

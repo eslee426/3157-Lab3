@@ -1,10 +1,3 @@
-/*
- * Name: Elisha Lee
- * Uni: esl2131
- * File: mylist.h
- * Description: Given header file for mylist.c
- */
-
 #ifndef _MYLIST_H_
 #define _MYLIST_H_
 
@@ -47,7 +40,6 @@ static inline void initList(struct List *list)
  * It returns the newly created node on success and NULL on failure.
  */
 struct Node *addFront(struct List *list, void *data);
-
 
 /*
  * Traverse the list, calling f() with each data item.
@@ -143,5 +135,3 @@ struct Node *addAfter(struct List *list,
 void reverseList(struct List *list);
 
 #endif /* #ifndef _MYLIST_H_ */
-
-
