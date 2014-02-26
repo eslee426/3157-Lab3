@@ -3,7 +3,7 @@ CC = gcc
 INCLUDES = -I ../part1
 CFLAGS = -g -Wall $(INCLUDES)
 
-LDFLAGS = -g -L ../part1
+LDFLAGS = -g -L../part1
 LDLIBS =  -lmylist
 
 
@@ -13,7 +13,7 @@ revecho.o: revecho.c
 
 .PHONY: clean
 clean:
-	rm -f *.o a.out core revecho
+	rm -f *.o a.out core revecho Makefile~ revecho.c~
 
 .PHONY: all
-all: clean revecho
+all: clean make
